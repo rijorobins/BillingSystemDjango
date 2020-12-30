@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Purchase List</h2>
+{%csrf_token%}
+{%for purchase in purchases%}
+    Product Name : {{purchase.product}}
+    Quantity :{{purchase.quantity}}
+    purchase_price : {{purchase.purchase_price}}
+    selling_price : {{purchase.selling_price}}
+<a href="{% url 'editpurchase' purchase.id%}">Edit</a>
+<a href="{%url 'deletepurchase' purchase.id%}">Delete</a>
+<hr>
+{%endfor%}
+</body>
+</html>
